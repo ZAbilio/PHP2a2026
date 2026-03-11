@@ -4,6 +4,21 @@
 </head>
 
 <body>
+   
+ <!-- atv 10/03
+ <form method="post" action="">
+        tabuada:<input type ="number" name="numero">
+        <input type="submit">-->
+  <form method="post" action="">
+        numero1:<input type ="number" name="numero1">
+        <input type="submit">
+  <form method="post" action="">
+        numero2:<input type ="number" name="numero2">
+        <input type="submit">
+  <form method="post" action="">
+        numero3:<input type ="number" name="numero3">
+        <input type="submit">
+
     <?php
    /* $i = 1;
     while ($i < 6){
@@ -40,7 +55,7 @@
        $valormaior = max($var1, $var2, $var3);
        echo "o maior valor é: "+ $valormaior ."<br>",*/
        
-       /*atv3*/
+       /*atv3
         echo "atividade 3"
         $num= 1;
         $tabuada=readline("digite o valor da tabuada:");
@@ -48,8 +63,31 @@
         echo ("Tabuada do ".$tabuada)
         $resultado=($tabuada*$num);
         echo($tabuada+"x"+$num ": ",+ $resultado);
+        }*/
+        
+       /* if(isset($_POST['numero'])){
+        $numero=(int)$_POST['numero'];
+         echo"<h2>Tabuada do $numero <h2/>";
+        for($i=1; $i<=12; $i++){
+          $resultado= $numero * $i;
+          echo "$numero x $i = $resultado <br>";
         }
-
+       } else{
+          echo"informe o valor no form acima";
+        } */
+    
+       if($_SERVER["REQUEST_METHOD"]== "POST"){
+       $num1=$_POST["numero1"]
+       $num2=$_POST["numero2"]
+       $num3=$_POST["numero3"]
+       }if($num1>$num2 && $num1>$num3){
+        echo ""
+       }if($num2>$num1 && $num2>$num3){
+        echo ""
+       }else{
+        echo""
+       }
+      
 
      
 
