@@ -2,51 +2,54 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> banco de dados Php</title>
-  <form action="/enviar" method="post">
-  <label for="nome">Nome:</label>
-  <input type="text" id="curso" name="curso" placeholder="Digite o curso: ">
-  
-  <input type="submit" value="Enviar">
-</form>
-
+  <title>Banco de dados PHP</title>
 </head>
 <body>
-  
-</body>
-</html>
+
+<form method="POST">
+  <label>Curso:</label>
+  <input type="text" name="curso" placeholder="Digite o curso">
+  <input type="submit" value="Pesquisar">
+</form>
 
 <?php
 $servidor = "localhost";
 $usuario = "aluno";
 $senha = "aluno.etec";
 $banco = "teste";
-$curso = "curso;"
 
-// Criar a minha conexão
-$conexao = mysqli_connect($servidor, $usuario, $senha, $banco,$curso);
+$conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 
-if ($conexao == false) {
-  die("Conexão falhou: " . mysqli_connect_error());
+if (!$conexao) {
+  die("Erro: " . mysqli_connect_error());
 }
 
+// pega o valor digitado
+$curso = isset($_POST['curso']) ? $_POST['curso'] : "";
 
-$sql = "SELECT * FROM cursos";
+// lógica da busca
+if ($curso != "") {
+  $sql = "SELECT * FROM cursos WHERE curso LIKE '%$curso%'";
+} else {
+  $sql = "SELECT * FROM cursos";
+}
 
 $retorno = mysqli_query($conexao, $sql);
 
-
+// mostrar resultados
 if (mysqli_num_rows($retorno) > 0) {
-  
   while($linha = mysqli_fetch_assoc($retorno)) {
-    echo "Codigo: " . $linha["cod"]. " - Curso: " . $linha["curso"]. " Vagas " . $linha["vagas"]. " Periodo " . $linha["periodo"] . "<br>";
+    echo "Código: " . $linha["cod"] .
+         " - Curso: " . $linha["curso"] .
+         " - Vagas: " . $linha["vagas"] .
+         " - Período: " . $linha["periodo"] . "<br>";
   }
-
 } else {
   echo "Nenhum resultado encontrado!";
 }
 
 mysqli_close($conexao);
-
 ?>
+
+</body>
+</html>
