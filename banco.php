@@ -24,10 +24,10 @@ if (!$conexao) {
   die("Erro: " . mysqli_connect_error());
 }
 
-// pega o valor digitado
+
 $curso = isset($_POST['curso']) ? $_POST['curso'] : "";
 
-// lógica da busca
+
 if ($curso != "") {
   $sql = "SELECT * FROM cursos WHERE curso LIKE '%$curso%'";
 } else {
@@ -36,7 +36,7 @@ if ($curso != "") {
 
 $retorno = mysqli_query($conexao, $sql);
 
-// mostrar resultados
+
 if (mysqli_num_rows($retorno) > 0) {
   while($linha = mysqli_fetch_assoc($retorno)) {
     echo "Código: " . $linha["cod"] .
