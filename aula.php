@@ -8,7 +8,7 @@
  <!-- atv 10/03
  <form method="post" action="">
         tabuada:<input type ="number" name="numero">
-        <input type="submit">-->
+        <input type="submit">
   <form method="post" action="">
         numero1:<input type ="number" name="numero1">
         <input type="submit">
@@ -17,7 +17,7 @@
         <input type="submit">
   <form method="post" action="">
         numero3:<input type ="number" name="numero3">
-        <input type="submit">
+        <input type="submit">-->
 
     <?php
    /* $i = 1;
