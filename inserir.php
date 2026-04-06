@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 </head>
 <?php
+
 // Variáveis para armazenar a mensagem de feedback
+
  $msg = "";
  $tipo_alerta = "";
 
@@ -19,6 +21,7 @@ if(isset($_POST["curso"])){
     $banco = "teste";
 
     // Criar conexão
+
     $conexao = mysqli_connect($servidor, $usuario, $senha, $banco);
 
     if (!$conexao) {
@@ -26,6 +29,7 @@ if(isset($_POST["curso"])){
     }
 
     // Recomendado: Usar mysqli_real_escape_string para evitar erros com aspas e SQL Injection
+
     $curso_escapado = mysqli_real_escape_string($conexao, $_POST["curso"]);
     $periodo_escapado = mysqli_real_escape_string($conexao, $_POST["periodo"]);
     $vagas = (int) $_POST["vagas"]; // Forçar a ser número inteiro
@@ -47,19 +51,16 @@ if(isset($_POST["curso"])){
 ?>
 <body class="bg-light">
 
-    <!-- Cabeçalho (Idêntico ao da listagem) -->
     <div class="container py-5">
         <div class="row mb-4">
             <div class="col-12 text-center">
                 <h1 class="display-5 text-primary fw-bold">
                     <i class="bi bi-mortarboard-fill"></i> Catálogo de Cursos
                 </h1>
-                <p class="text-muted">Exemplo de conexão PHP + MySQL com Bootstrap</p>
+                <p class="text-muted">conexão PHP + MySQL com Bootstrap</p>
             </div>
         </div>
 
-        <!-- Formulário de Busca (Apontando de volta para a página inicial) -->
-        <!-- ATENÇÃO: Mude o "action" abaixo para o nome do seu arquivo de listagem (ex: index.php) -->
         <div class="row justify-content-center mb-4">
             <div class="col-md-6">
                 <form action="banco.php" method="POST" class="d-flex shadow-sm">
@@ -76,7 +77,7 @@ if(isset($_POST["curso"])){
             </div>
         </div>
 
-        <!-- Alerta de Sucesso ou Erro -->
+      
         <?php if ($msg != ""): ?>
             <div class="row justify-content-center mb-4">
                 <div class="col-md-6">
@@ -88,7 +89,7 @@ if(isset($_POST["curso"])){
             </div>
         <?php endif; ?>
 
-        <!-- Formulário de Cadastro dentro de um Card -->
+        
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card border-0 shadow-sm">
@@ -98,7 +99,7 @@ if(isset($_POST["curso"])){
                         </h5>
                         
                         <form action="" method="POST">
-                            <!-- Campo Curso -->
+               
                             <div class="mb-3">
                                 <label for="curso" class="form-label fw-bold">
                                     <i class="bi bi-bookmark-star-fill text-success"></i> Nome do Curso
@@ -107,7 +108,7 @@ if(isset($_POST["curso"])){
                                        placeholder="Ex: Desenvolvimento de Sistemas" required>
                             </div>
                             
-                            <!-- Campo Vagas -->
+                         
                             <div class="mb-3">
                                 <label for="vagas" class="form-label fw-bold">
                                     <i class="bi bi-people-fill text-primary"></i> Quantidade de Vagas
@@ -116,7 +117,7 @@ if(isset($_POST["curso"])){
                                        placeholder="Ex: 40" min="1" required>
                             </div>
                             
-                            <!-- Campo Período -->
+                           
                             <div class="mb-4">
                                 <label for="periodo" class="form-label fw-bold">
                                     <i class="bi bi-clock-fill text-warning"></i> Período
@@ -125,7 +126,7 @@ if(isset($_POST["curso"])){
                                        placeholder="Ex: Matutino, Noturno..." required>
                             </div>
                             
-                            <!-- Botão Cadastrar -->
+                            
                             <div class="d-grid">
                                 <button class="btn btn-success btn-lg" type="submit">
                                     <i class="bi bi-save-fill"></i> Salvar Curso
@@ -139,7 +140,6 @@ if(isset($_POST["curso"])){
 
     </div>
 
-    <!-- Bootstrap 5 JS via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
