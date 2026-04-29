@@ -104,7 +104,7 @@ $linha = mysqli_fetch_assoc($retorno);
                         </h5>
 
                         <form action="editar.php?cod=<?= $cod ?>" method="POST">
-                            <!-- Campo Nome -->
+                   
                             <div class="mb-3">
                                 <label for="aluno" class="form-label fw-bold">
                                     <i class="bi bi-person-fill text-success"></i> Nome do Aluno
@@ -114,7 +114,7 @@ $linha = mysqli_fetch_assoc($retorno);
                                        value="<?= htmlspecialchars($linha["aluno"]) ?>" required>
                             </div>
 
-                            <!-- Campo E-mail -->
+                     
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-bold">
                                     <i class="bi bi-envelope-fill text-primary"></i> E-mail
@@ -124,7 +124,7 @@ $linha = mysqli_fetch_assoc($retorno);
                                        value="<?= htmlspecialchars($linha["email"]) ?>" required>
                             </div>
 
-                            <!-- Campo Senha -->
+                      
                             <div class="mb-4">
                                 <label for="senha" class="form-label fw-bold">
                                     <i class="bi bi-lock-fill text-warning"></i> Senha

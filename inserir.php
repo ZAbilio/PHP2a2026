@@ -90,7 +90,7 @@ if(isset($_POST["aluno"])){
                         </h5>
 
                         <form action="" method="POST">
-                            <!-- Campo Nome -->
+                         
                             <div class="mb-3">
                                 <label for="aluno" class="form-label fw-bold">
                                     <i class="bi bi-person-fill text-success"></i> Nome do Aluno
@@ -99,7 +99,7 @@ if(isset($_POST["aluno"])){
                                        placeholder="Ex: João da Silva" required>
                             </div>
 
-                            <!-- Campo E-mail -->
+                   
                             <div class="mb-3">
                                 <label for="email" class="form-label fw-bold">
                                     <i class="bi bi-envelope-fill text-primary"></i> E-mail
@@ -108,7 +108,6 @@ if(isset($_POST["aluno"])){
                                        placeholder="Ex: joao@email.com" required>
                             </div>
 
-                            <!-- Campo Senha -->
                             <div class="mb-4">
                                 <label for="senha" class="form-label fw-bold">
                                     <i class="bi bi-lock-fill text-warning"></i> Senha
